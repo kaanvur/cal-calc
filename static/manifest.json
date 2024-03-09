@@ -1,0 +1,14 @@
+{
+    "name": "Cal-Calc",
+    "description": "Calculates the calories of your recipes",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "appicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
