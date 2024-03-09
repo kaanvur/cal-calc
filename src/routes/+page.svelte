@@ -96,7 +96,7 @@
 		<Label>
 			<span class="flex gap-2">
 				Tarifini gir
-				<Button pill={true} class="p-0" color="none" outline={false}><InfoCircle/></Button>
+				<Button pill={true} class="p-0" color="none" ><InfoCircle/></Button>
 				<Tooltip>Her satıra adet ya da gr şeklinde 1 ürün girin</Tooltip>
 			</span>
 				<Textarea
