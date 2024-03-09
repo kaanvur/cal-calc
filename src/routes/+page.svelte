@@ -11,9 +11,10 @@
 		TableBodyRow,
 		TableHead,
 		TableHeadCell,
-		Badge
+		Badge,
+		Tooltip
 	} from 'flowbite-svelte';
-	import { Mushroom, Pizza, Plant2, Salad, Sausage, Home, MichelinStar } from 'svelte-tabler';
+	import { Mushroom, Pizza, Plant2, Salad, Sausage, Home, MichelinStar,InfoCircle } from 'svelte-tabler';
 
 	import { t } from 'svelte-i18n';
 
@@ -93,13 +94,17 @@
 <div class="container mx-auto grid gap-6">
 	<Card class="max-w-full">
 		<Label>
-			Tarifini gir
-			<Textarea
-				class="mt-2"
-				bind:value={textToTranslate}
-				placeholder="Malzemeleri girin"
-				rows="10"
-			/>
+			<span class="flex gap-2">
+				Tarifini gir
+				<Button pill={true} class="p-0" color="alternative"><InfoCircle/></Button>
+				<Tooltip>Her satıra adet ya da gr şeklinde 1 ürün girin</Tooltip>
+			</span>
+				<Textarea
+					class="mt-2"
+					bind:value={textToTranslate}
+					placeholder="Malzemeleri girin"
+					rows="10"
+				/>
 		</Label>
 		<Button class="my-4" on:click={handleTranslate}>İngilizceye çevir ve Değerleri getir</Button>
 		<Label>
