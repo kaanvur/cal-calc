@@ -18,7 +18,7 @@ then localization the incoming information into Turkish.
 
 ## Installation
 
-you need to set .env file in the root folder and specify the keys to be used in the api.
+you need create an .env file in the root folder and specify the keys to be used in the api.
 
 ```sh
 PRIVATE_EDAMAM_APPID=***************************
