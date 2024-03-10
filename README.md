@@ -15,6 +15,16 @@ then localization the incoming information into Turkish.
 - i18n localization.
 
 ## Installation
+
+you need to create an .env file in the root folder and specify the keys to be used in the api.
+
+```sh
+PRIVATE_EDAMAM_APPID=***************************
+PRIVATE_EDAMAM_APKEY=***************************
+# if you are using with key
+PRIVATE_LIBRE_TRANS_APIKEY=***************************
+```
+
 install dependencies:
 ```sh
 npm install
