@@ -1,10 +1,7 @@
 <script lang="ts">
+	import RecipeInput from '$lib/components/RecipeInput.svelte';
 	import {
 		Card,
-		Button,
-		Textarea,
-		Select,
-		Label,
 		Table,
 		TableBody,
 		TableBodyCell,
@@ -12,9 +9,8 @@
 		TableHead,
 		TableHeadCell,
 		Badge,
-		Tooltip
 	} from 'flowbite-svelte';
-	import { Mushroom, Pizza, Plant2, Salad, Sausage, Home, MichelinStar,InfoCircle } from 'svelte-tabler';
+	import { Mushroom, Pizza, Plant2, Salad, Sausage, Home, MichelinStar } from 'svelte-tabler';
 
 	import { t } from 'svelte-i18n';
 
@@ -92,31 +88,12 @@
 </script>
 
 <div class="container mx-auto grid gap-6">
-	<Card class="max-w-full">
-		<Label>
-			<span class="flex gap-2">
-				Tarifini gir
-				<Button pill={true} class="p-0" color="none" ><InfoCircle/></Button>
-				<Tooltip>Her satıra adet ya da gr şeklinde 1 ürün girin</Tooltip>
-			</span>
-				<Textarea
-					class="mt-2"
-					bind:value={textToTranslate}
-					placeholder="Malzemeleri girin"
-					rows="10"
-				/>
-		</Label>
-		<Button class="my-4" on:click={handleTranslate}>İngilizceye çevir ve Değerleri getir</Button>
-		<Label>
-			Dil seç (deneme)
-			<Select class="mt-2" bind:value={targetLanguage}>
-				<option value="en">English</option>
-				<option value="fr">French</option>
-				<option value="tr">Turkish</option>
-			</Select>
-		</Label>
-	</Card>
-	<Card class="max-w-full text-sm text-gray-900 dark:text-gray-300">
+ <RecipeInput
+    bind:textToTranslate={textToTranslate}
+    bind:targetLanguage={targetLanguage}
+    handleTranslate={handleTranslate}
+ />
+ 	<Card class="max-w-full text-sm text-gray-900 dark:text-gray-300">
 		<p>Translated Text:</p>
 		<p>{@html translatedText.replace(/\n/g, '<br>')}</p>
 	</Card>
