@@ -9,6 +9,7 @@ then localization the incoming information into Turkish.
 ## Features
 - svelte
 - flowbite ui with tailwindcss
+- svelte tabler icon set.
 - server side render does not expose your api keys.
 - libre translate can host anywhere you want.
 - i18n localization.
