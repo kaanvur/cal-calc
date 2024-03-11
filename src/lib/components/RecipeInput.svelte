@@ -1,9 +1,8 @@
 <script lang="ts">
- import { Card, Button, Textarea, Select, Label, Tooltip } from 'flowbite-svelte';
+ import { Card, Button, Textarea, Label, Tooltip } from 'flowbite-svelte';
  import { InfoCircle } from 'svelte-tabler';
 
  export let textToTranslate = '';
- export let targetLanguage = 'en';
  export let handleTranslate: () => void;
 </script>
 
@@ -22,12 +21,4 @@
     />
  </Label>
  <Button class="my-4" on:click={handleTranslate}>İngilizceye çevir ve Değerleri getir</Button>
- <Label>
-    Dil seç (deneme)
-    <Select class="mt-2" bind:value={targetLanguage}>
-      <option value="en">English</option>
-      <option value="fr">French</option>
-      <option value="tr">Turkish</option>
-    </Select>
- </Label>
 </Card>

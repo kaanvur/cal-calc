@@ -90,7 +90,6 @@
 <div class="container mx-auto grid gap-6">
  <RecipeInput
     bind:textToTranslate={textToTranslate}
-    bind:targetLanguage={targetLanguage}
     handleTranslate={handleTranslate}
  />
  	<Card class="max-w-full text-sm text-gray-900 dark:text-gray-300">
