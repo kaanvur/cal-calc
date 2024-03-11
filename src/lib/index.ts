@@ -1,9 +1,9 @@
 import { PRIVATE_LIBRE_TRANS_APIKEY, PRIVATE_EDAMAM_APPID, PRIVATE_EDAMAM_APKEY } from "$env/static/private";
 
-async function translateText(text: string, targetLanguage: string): Promise<string> {
+async function translateTextLibre(text: string, targetLanguage: string): Promise<string> {
     const url = "https://translate.kaanvurgun.com/translate";
     const body = JSON.stringify({
-        q: text.split(/\n|\r/),
+        q: text,
         source: "auto",
         target: targetLanguage,
         format: "text",
@@ -27,6 +27,25 @@ async function translateText(text: string, targetLanguage: string): Promise<stri
     }
 }
 
+async function translateTextGoogle(text: string, targetLanguage: string): Promise<string> {
+
+    const Googleurl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURI(text)}`;
+
+    try {
+        const response = await fetch(Googleurl);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const translations = data[0].map((text) => text[0]);
+        const outputText = translations.join(",");
+        return outputText;
+    } catch (error) {
+        console.error('Translation error:', error);
+        throw error;
+    }
+}
+
 async function fetchNutritionalInfo(query: string): Promise<string> {
     const url = `https://api.edamam.com/api/nutrition-details?app_id=${PRIVATE_EDAMAM_APPID}&app_key=${PRIVATE_EDAMAM_APKEY}&force=true`;
 
@@ -34,7 +53,7 @@ async function fetchNutritionalInfo(query: string): Promise<string> {
         const response = await fetch(url, {
             method: "POST",
             body: JSON.stringify({
-                ingr: query
+                ingr: query.split(/\n|\r/)
             }),
             headers: { "Content-Type": "application/json" }
         });
@@ -50,4 +69,4 @@ async function fetchNutritionalInfo(query: string): Promise<string> {
     }
 }
 
-export { translateText, fetchNutritionalInfo };
+export { translateTextLibre, fetchNutritionalInfo, translateTextGoogle };
