@@ -7,7 +7,7 @@ then localization the incoming information into Turkish.
 
 
 ## Features
-- svelte
+- svelte kit
 - flowbite ui with tailwindcss
 - svelte tabler icon set.
 - dark and light mode support
