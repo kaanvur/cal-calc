@@ -3,7 +3,7 @@ import { PRIVATE_LIBRE_TRANS_APIKEY, PRIVATE_EDAMAM_APPID, PRIVATE_EDAMAM_APKEY 
 async function translateText(text: string, targetLanguage: string): Promise<string> {
     const url = "https://translate.kaanvurgun.com/translate";
     const body = JSON.stringify({
-        q: text,
+        q: text.split(/\n|\r/),
         source: "auto",
         target: targetLanguage,
         format: "text",
@@ -34,7 +34,7 @@ async function fetchNutritionalInfo(query: string): Promise<string> {
         const response = await fetch(url, {
             method: "POST",
             body: JSON.stringify({
-                ingr: query.split(/\n|\r/)
+                ingr: query
             }),
             headers: { "Content-Type": "application/json" }
         });

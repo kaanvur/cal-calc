@@ -95,7 +95,7 @@
  />
  	<Card class="max-w-full text-sm text-gray-900 dark:text-gray-300">
 		<p>Translated Text:</p>
-		<p>{@html translatedText.replace(/\n/g, '<br>')}</p>
+		<p>{@html translatedText}</p>
 	</Card>
 	{#if nutritionalInfo}
 		<Card class="grid max-w-full">
