@@ -13,7 +13,7 @@ then localization the incoming information into Turkish.
 - dark and light mode support
 - progressive web app (pwa) activated.
 - server side render does not expose your api keys.
-- libre translate can host anywhere you want.
+- libre translate can host anywhere you want or use google translate
 - i18n localization.
 
 ## Installation
