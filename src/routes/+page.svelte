@@ -197,9 +197,4 @@
 			<p>Gösterilecek besin değeri tablosu yok</p>
 		</Card>
 	{/if}
-	{#if nutritionalInfo}
-		<Card class="grid max-w-full overflow-x-auto text-sm text-gray-900 dark:text-gray-300">
-			<pre>{@html JSON.stringify(nutritionalInfo, null, 2)}</pre>
-		</Card>
-	{/if}
 </div>
