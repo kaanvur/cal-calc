@@ -43,7 +43,7 @@
 <slot />
 
 <Footer class="my-10">
-	<hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+	<hr class="my-6 border-gray-200 dark:border-gray-700 mx-auto lg:my-8" />
 	<FooterCopyright href="https://kaanvurgun.com/" target="_blank" by="Kaan Vurgun" />
 </Footer>
 <Toast position="bottom-right" bind:open>
