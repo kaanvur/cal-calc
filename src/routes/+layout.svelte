@@ -12,12 +12,17 @@
 		FooterCopyright
 	} from 'flowbite-svelte';
 	import { DeviceDesktopDown } from 'svelte-tabler';
+	import { page } from '$app/stores';
+
 
 	let open = true;
 	let counter = 6;
 	setTimeout(() => {
 		open = false;
 	}, counter * 1000);
+
+	$: activeUrl = $page.url.pathname;
+
 </script>
 
 <svelte:head>
@@ -30,9 +35,9 @@
 			>Besin Hesaplayıcı</span
 		>
 	</NavBrand>
-	<NavUl class="order-1 ml-auto md:order-none">
+	<NavUl {activeUrl} class="order-1 ml-auto md:order-none">
 		<NavLi href="/">Tarif</NavLi>
-		<NavLi href="/">Yemek</NavLi>
+		<NavLi href="/yemek">Yemek</NavLi>
 	</NavUl>
 	<div class="flex items-center">
 		<DarkMode />
