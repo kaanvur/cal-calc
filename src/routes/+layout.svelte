@@ -1,8 +1,23 @@
 <script>
 	import '../app.pcss';
 	import { DarkMode } from 'flowbite-svelte';
-	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Banner } from 'flowbite-svelte';
-	import {DeviceDesktopDown} from 'svelte-tabler';
+	import {
+		Navbar,
+		NavBrand,
+		NavLi,
+		NavUl,
+		NavHamburger,
+		Toast,
+		Footer,
+		FooterCopyright
+	} from 'flowbite-svelte';
+	import { DeviceDesktopDown } from 'svelte-tabler';
+
+	let open = true;
+	let counter = 6;
+	setTimeout(() => {
+		open = false;
+	}, counter * 1000);
 </script>
 
 <svelte:head>
@@ -26,15 +41,12 @@
 </Navbar>
 
 <slot />
-<Banner id="bottom-banner" position="absolute" bannerType="bottom">
-  <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
-    <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600">
-	<DeviceDesktopDown class="w-4 h-4 text-gray-500 dark:text-gray-400" />
 
-      <span class="sr-only">Uygulama olarak yükle</span>
-    </span>
-    <span>
-      Uygulama olarak yükleyerek kolay erişim sağlayabilirsiniz. 
-    </span>
-  </p>
-</Banner>
+<Footer class="my-10">
+	<hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+	<FooterCopyright href="https://kaanvurgun.com/" target="_blank" by="Kaan Vurgun" />
+</Footer>
+<Toast position="bottom-right" bind:open>
+	<DeviceDesktopDown slot="icon" />
+	Uygulama olarak yükleyerek kolay erişim sağlayabilirsiniz.
+</Toast>
