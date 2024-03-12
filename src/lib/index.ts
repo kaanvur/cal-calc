@@ -37,7 +37,7 @@ async function translateTextGoogle(text: string, targetLanguage: string): Promis
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const translations = data[0].map((text) => text[0]);
+        const translations = data[0].map((text: string[]) => text[0]);
         const outputText = translations.join(",");
         return outputText;
     } catch (error) {
