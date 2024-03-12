@@ -56,6 +56,7 @@
 	};
 
 	let nutritionalInfo: NutritionalInfo | null = null;
+	let hasError: string = '';
 
 	async function handleTranslate() {
 		try {
@@ -74,10 +75,12 @@
 				const data = await response.json();
 				translatedText = data.translatedText;
 				nutritionalInfo = data.nutritionalInfo;
+				hasError = '';
 			} else {
 				const data = await response.json();
 				nutritionalInfo = null;
 				const errorMessage = data.error ? `Hata: ${data.error} <br>` : '';
+				hasError = data.error ? data.error : '';
 				translatedText = `${errorMessage}${data.translatedText}`;
 			}
 		} catch (error) {
@@ -91,6 +94,7 @@
  <RecipeInput
     bind:textToTranslate={textToTranslate}
     handleTranslate={handleTranslate}
+	bind:hasError={hasError}
  />
  	<Card class="max-w-full text-sm text-gray-900 dark:text-gray-300">
 		<p>Translated Text:</p>
