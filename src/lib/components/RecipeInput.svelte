@@ -14,7 +14,7 @@ export let hasError = '';
       <Tooltip>Her satıra adet ya da gr şeklinde 1 ürün girin</Tooltip>
     </span>
     <Textarea
-      class="mt-2 text-red-700 {hasError ? 'dark:text-red-500 border-red-700 dark:border-red-500' : ''}"
+      class="mt-2 {hasError ? 'text-red-700 dark:text-red-500 border-red-700 dark:border-red-500' : ''}"
       bind:value={textToTranslate}
       placeholder="Malzemeleri girin"
       rows="10"
